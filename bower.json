@@ -1,0 +1,20 @@
+{
+  "name": "library",
+  "description": "",
+  "main": "app.js",
+  "authors": [
+    "Michael Friedman <contact@michaeldavidfriedman.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/michaelfriedman/library",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
