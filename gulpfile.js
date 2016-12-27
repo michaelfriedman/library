@@ -13,7 +13,7 @@ gulp.task('style', () => gulp.src(jsFiles));
 gulp.task('inject', () => {
   const wiredep = require('wiredep').stream;
   const inject = require('gulp-inject');
-  const injectSrc = gulp.src(['./public/css/*.css', './public/js/*.js'],
+  const injectSrc = gulp.src(['./public/css/*.css', './public/js/*.js', 'app.js'],
     { read: false });
   const injectOptions = {
     ignorePath: '/public'
@@ -24,7 +24,7 @@ gulp.task('inject', () => {
     ignorePath: '../../public'
   };
 
-  return gulp.src('./src/views/*.html')
+  return gulp.src('./src/views/*.jade')
     .pipe(wiredep(options))
     .pipe(inject(injectSrc, injectOptions))
     .pipe(gulp.dest('./src/views'));
