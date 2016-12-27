@@ -1,4 +1,5 @@
 const gulp = require('gulp');
+const nodemon = require('gulp-nodemon');
 
 const jsFiles = ['*.js', 'src/**/*.js'];
 
@@ -24,4 +25,20 @@ gulp.task('inject', () => {
     .pipe(wiredep(options))
     .pipe(inject(injectSrc, injectOptions))
     .pipe(gulp.dest('./src/views'));
+});
+
+gulp.task('serve', ['inject'], () => {
+  const options = {
+    script: 'public/js/app.js',
+    delayTime: 1,
+    env: {
+      'PORT': 3000
+    },
+    watch: jsFiles
+  }
+
+  return nodemon(options)
+    .on('restart', (ev) => {
+      console.log('Restarting...');
+    });
 });
