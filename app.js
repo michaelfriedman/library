@@ -11,7 +11,7 @@ app.set('views', './src/views');
 app.set('view engine', 'jade');
 
 app.get('/', (req, res) => {
-  res.send('Hello world.');
+  res.render('index');
 });
 
 app.get('/books', (req, res) => {
