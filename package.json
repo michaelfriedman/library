@@ -5,13 +5,16 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node public/js/app.js"
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "Michael Friedman <contact@michaeldavidfriedman.com>",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.14.0"
+    "ejs": "^2.5.5",
+    "express": "^4.14.0",
+    "express-handlebars": "^3.0.0",
+    "jade": "^1.11.0"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
