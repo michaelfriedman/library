@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+/* eslint-disable comma-dangle */
 
 const express = require('express');
 
@@ -11,7 +12,10 @@ app.set('views', './src/views');
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
-  res.render('index', { title: 'Hello from render', list: ['a', 'b'] });
+  res.render('index', { title: 'Hello from render', nav: [
+    { Link: '/Books', Text: 'Books' },
+    { Link: '/Authors', Text: 'Authors' }
+  ] });
 });
 
 app.get('/books', (req, res) => {
