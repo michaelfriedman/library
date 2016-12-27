@@ -1,11 +1,14 @@
+/* eslint-disable comma-dangle */
+/* eslint-disable no-console */
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable global-require */
+
 const gulp = require('gulp');
 const nodemon = require('gulp-nodemon');
 
 const jsFiles = ['*.js', 'src/**/*.js'];
 
-gulp.task('style', () => {
-  return gulp.src(jsFiles);
-});
+gulp.task('style', () => gulp.src(jsFiles));
 
 gulp.task('inject', () => {
   const wiredep = require('wiredep').stream;
@@ -32,13 +35,13 @@ gulp.task('serve', ['inject'], () => {
     script: 'public/js/app.js',
     delayTime: 1,
     env: {
-      'PORT': 3000
+      PORT: 3000
     },
     watch: jsFiles
-  }
+  };
 
   return nodemon(options)
-    .on('restart', (ev) => {
+    .on('restart', () => {
       console.log('Restarting...');
     });
 });
