@@ -3,7 +3,12 @@
 
 const express = require('express');
 
-const bookRouter = require('./src/routes/bookRoutes');
+const nav = [
+  { Link: '/Books', Text: 'Book' },
+  { Link: '/Authors', Text: 'Author' }
+];
+
+const bookRouter = require('./src/routes/bookRoutes')(nav);
 
 const app = express();
 
@@ -22,9 +27,9 @@ app.get('/', (req, res) => {
   ] });
 });
 
-app.get('/books', (req, res) => {
-  res.send('Hello books.');
-});
+// app.get('/books', (req, res) => {
+//   res.send('Hello books.');
+// });
 
 app.listen(port, (err) => {
   if (err) {
